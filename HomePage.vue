@@ -84,7 +84,7 @@ export default {
 
 .overlay button {
   width: 4px;
-  height: 20px;
+  height: 25px;
   border-radius: 2px;
   background-color: white;
   margin-top: 2px;
@@ -93,7 +93,7 @@ export default {
 }
 
 button.hidden {
-  animation: disappear 500ms ease forwards;
+  animation: disappear 700ms ease forwards;
 }
 
 .hide-overlay {
@@ -103,9 +103,11 @@ button.hidden {
 @keyframes disappear {
   from {
     opacity: 1;
+    height: 25px;
   }
   to {
     opacity: 0.5;
+    height: 20px;
   }
 }
 </style>

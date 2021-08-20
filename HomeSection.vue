@@ -28,6 +28,7 @@ section {
 
 .hidden {
   display: none;
+  animation: appear 250ms ease reverse;
 }
 
 @keyframes appear {
