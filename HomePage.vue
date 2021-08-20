@@ -42,17 +42,19 @@ export default {
       this.setCurrentSection(this.allSection[0])
       window.addEventListener('wheel', (e) => {
         if (this.scrollDisabled) return
-        this.scrollDisabled = true
-        setTimeout(() => {
-          this.scrollDisabled = false
-        }, 1000)
-        if (e.deltaY < 0 && this.currentSection !== this.allSection[0]) {
+        if (e.deltaY < -20 || e.deltaY > 20) {
+          this.scrollDisabled = true
+          setTimeout(() => {
+            this.scrollDisabled = false
+          }, 1000)
+        }
+        if (e.deltaY < -20 && this.currentSection !== this.allSection[0]) {
           this.currentSection =
             this.allSection[
               this.allSection.findIndex((it) => it === this.currentSection) - 1
             ]
         } else if (
-          e.deltaY > 0 &&
+          e.deltaY > 20 &&
           this.currentSection !== this.allSection[this.allSection.length - 1]
         ) {
           this.currentSection =
