@@ -3,7 +3,7 @@
     <div class="page">
       <slot :currentSection="currentSection" />
     </div>
-    <div ref="overlay" class="overlay">
+    <div ref="overlay" :class="{ overlay: true, 'hide-overlay': hideOverlay }">
       <button
         v-for="i in allSection"
         :key="i"
@@ -16,6 +16,12 @@
 
 <script>
 export default {
+  props: {
+    hideOverlay: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       currentSection: '',
@@ -86,6 +92,10 @@ export default {
 
 button.hidden {
   animation: disappear 500ms ease forwards;
+}
+
+.hide-overlay {
+  display: none;
 }
 
 @keyframes disappear {
